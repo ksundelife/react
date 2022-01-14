@@ -1,0 +1,8 @@
+.alignment {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.characterization {
+	font-size: 20px;
+}
