@@ -1,9 +1,39 @@
-.alignment {
+.background {
+	background-color: rgb(236, 236, 236);
+	border-radius: 10px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.055);
+	border: 1px solid rgba(255, 255, 255, 0.212);
+}
+.header {
+	margin-top: 10px;
+}
+.padding {
+	padding-left: calc(50% - 350px);
+	padding-right: calc(50% - 350px);
+}
+
+.header_block {
+	height: 70px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.characterization {
+.logo {
+	color:#58553a;
+	transition: all 0.4s;
+}
+.logo_text {
 	font-size: 25px;
+	cursor: pointer;
+}
+
+.logo_text:hover .logo {
+	color: #857800;
+}
+
+.logo_text .logo {
+	display: inline;
+	font-size: 30px;
+
 }
