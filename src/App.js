@@ -9,21 +9,21 @@ function App() {
 	const [messages, getMessages] = useState([]);
 
 	useEffect(() => {
-
+		const loadComoutedMessage = () => {
+			if (messages[(messages.length - 1)].author === 'Ksusha') {
+				getMessages(prevState => [...prevState, {
+					author: 'Computed',
+					text: 'Привет! Я робот и не умею нормально отвечать'
+				}]);
+			}
+		};
 		setTimeout(() => {
 			loadComoutedMessage();
 		}, 2000);
 		
-	});
+	}, [messages]);
 
-	const loadComoutedMessage = () => {
-		if (messages[(messages.length - 1)].author === 'Ksusha') {
-			getMessages([...messages, {
-				author: 'Computed',
-				text: 'Привет! Я робот и не умею нормально отвечать'
-			}]);
-		}	
-	};
+	
 
 	return (
 		<div className = "App">

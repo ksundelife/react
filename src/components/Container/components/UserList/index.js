@@ -9,7 +9,7 @@ export const UserList = () => {
 			styles.background
 		].join(' ')}
 	>
-		<div class={styles.panel}>
+		<div className={styles.panel}>
 			<div className={styles.panel__heading}>
 				<span className={styles.logo__mini}><i className={[styles.logo,'fas','fa-strikethrough'].join(' ')}></i></span>
 				<p className={styles.content__left_heading}>chats</p>
