@@ -1,39 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import { Header, Container } from './components';
-import {InputForm} from "./examples/hooks";
+import { InputForm } from "./examples/hooks";
 
 
 function App() {
 
-	const [messages, getMessages] = useState([]);
+	const [messages, setMessages] = useState([]);
+
+	const loadComoutedMessage = useCallback(() => {
+		if (messages[(messages.length - 1)].author === 'Ksusha' && messages.length !== 0) {
+			setMessages(prevState => [...prevState, {
+				id: Date.now(),
+				author: 'Computed',
+				text: 'Привет! Я робот и не умею нормально отвечать'
+			}]);
+		}
+	}, [messages]);
 
 	useEffect(() => {
-		const loadComoutedMessage = () => {
-			if (messages[(messages.length - 1)].author === 'Ksusha') {
-				getMessages(prevState => [...prevState, {
-					author: 'Computed',
-					text: 'Привет! Я робот и не умею нормально отвечать'
-				}]);
-			}
-		};
 		setTimeout(() => {
 			loadComoutedMessage();
 		}, 2000);
-		
-	}, [messages]);
-
-	
+	}, [messages, loadComoutedMessage]);
 
 	return (
 		<div className = "App">
 			<Header/>
-			<Container messages={messages}>
+			<Container messages={ messages }>
 			</Container>
 			
 			<InputForm 
 				handleSubmit={(formState) => {
-					getMessages([...messages, formState])
+					setMessages([...messages, formState])
 				}}
 			/>
 

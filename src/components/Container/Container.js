@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Container.module.css';
+import { UserPanel } from './components';
+import { Message } from './components';
 
-import {UserList} from './components/UserList';
-import {Message}  from './components/Message';
 
-export const Container = ({messages}) => {
+export const Container = ({ messages }) => {
     return (
         <div
             className = {
@@ -14,8 +14,8 @@ export const Container = ({messages}) => {
                 ].join(' ')
             }
         >
-            <UserList/>
-            <Message messages={messages} />
+            <UserPanel/>
+            <Message messages={ messages } />
         </div>
     )
-}
+};

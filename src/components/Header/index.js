@@ -19,5 +19,5 @@ export const Header = () => {
 				<a href="/#" className={styles.logo_text}> net <span><i className={[styles.logo,'fas','fa-strikethrough'].join(' ')}></i></span> peacking</a>
 			</div>
 		</header>
-	)
+	);
 }
