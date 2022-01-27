@@ -13,11 +13,11 @@ export const Message = ({messages}) => {
         >
             <ul className={styles.messages_list}>
 				{
-					messages.map((message, id) => <li key={id}>
+					messages.map((message) => <li key={message.id}>
 						<span>{ message.author }: { message.text }</span>
 					</li>)
 				}
 			</ul>
         </div>
-    )
+    );
 }

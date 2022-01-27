@@ -1,7 +1,14 @@
+.chat_input_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
 .input_form {
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 .chat_input {
@@ -13,6 +20,7 @@
     padding: 0 15px;
     font-size: 18px;
     color: #58553a;
+    width: 355px;
 }
 
 .reset {
@@ -43,4 +51,18 @@
 .submit:hover {
     background-color: #857800;
     color: white;
+}
+
+@media (max-width: 440px) {
+    .reset {
+        margin-right: 0px;
+    }
+    .submit {
+        margin-top: 10px;
+        width: 100%;
+    }
+    .chat_input,
+    .chat_input_div {
+        width: 100%;
+    }
 }
