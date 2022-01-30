@@ -1,41 +1,40 @@
-import { useState, useEffect, useCallback } from 'react';
 import './App.css';
-import { Header, Container } from './components';
-import { InputForm } from "./examples/hooks";
-
+import { Routes, Route } from 'react-router-dom';
+import {getHomeLink, getChatsLink, getProfileLink} from "./routes";
+import { Layout, Profile, Home, Chat, Chats, NotFound } from './pages';
 
 function App() {
 
-	const [messages, setMessages] = useState([]);
-
-	const loadComoutedMessage = useCallback(() => {
-		if (messages[(messages.length - 1)].author === 'Ksusha' && messages.length !== 0) {
-			setMessages(prevState => [...prevState, {
-				id: Date.now(),
-				author: 'Computed',
-				text: 'Привет! Я робот и не умею нормально отвечать'
-			}]);
+	const usersList = [
+		{
+			id: Date.now() + 1,
+			name: "user-1"
+		},
+		{
+			id: Date.now() + 2,
+			name: "user-2"
+		},
+		{
+			id: Date.now() + 3,
+			name: "user-3"
+		},
+		{
+			id: Date.now() + 4,
+			name: "user-4"
 		}
-	}, [messages]);
-
-	useEffect(() => {
-		setTimeout(() => {
-			loadComoutedMessage();
-		}, 2000);
-	}, [messages, loadComoutedMessage]);
+	];
 
 	return (
 		<div className = "App">
-			<Header/>
-			<Container messages={ messages }>
-			</Container>
-			
-			<InputForm 
-				handleSubmit={(formState) => {
-					setMessages([...messages, formState])
-				}}
-			/>
-
+			<Routes>
+				<Route path={getHomeLink()} element={<Layout/>}>
+					<Route path={getHomeLink()} element={<Home/>} />
+					<Route path = {getChatsLink()} element = {<Chats usersList={usersList}/>} />
+					<Route path={`${getChatsLink()}/:chatId`} element={<Chat usersList={usersList}/>} />
+					<Route path={getProfileLink()} element={<Profile/>} />
+					<Route path='*' element={<NotFound/>} />
+				</Route>
+			</Routes>
 		</div>
 	);
 }

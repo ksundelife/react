@@ -53,7 +53,7 @@
     color: white;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 490px) {
     .reset {
         margin-right: 0px;
     }
