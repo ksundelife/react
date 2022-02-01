@@ -1,7 +1,8 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import {getHomeLink, getChatsLink, getProfileLink} from "./routes";
+import {getHomeLink, getChatsLink, getProfileLink, getChatLink} from "./routes";
 import { Layout, Profile, Home, Chat, Chats, NotFound } from './pages';
+
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
 				<Route path={getHomeLink()} element={<Layout/>}>
 					<Route path={getHomeLink()} element={<Home/>} />
 					<Route path = {getChatsLink()} element = {<Chats usersList={usersList}/>} />
-					<Route path={`${getChatsLink()}/:chatId`} element={<Chat usersList={usersList}/>} />
+					<Route path={getChatLink()} element={<Chat usersList={usersList}/>} />
 					<Route path={getProfileLink()} element={<Profile/>} />
 					<Route path='*' element={<NotFound/>} />
 				</Route>
