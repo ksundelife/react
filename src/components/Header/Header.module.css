@@ -1,39 +1,53 @@
 .background {
-	background-color: rgb(236, 236, 236);
-	border-radius: 10px;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.055);
-	border: 1px solid rgba(255, 255, 255, 0.212);
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.212);
 }
+
 .header {
-	margin-top: 10px;
+    margin-top: 10px;
 }
+
 .padding {
-	padding-left: calc(50% - 350px);
-	padding-right: calc(50% - 350px);
+    padding-left: calc(50% - 350px);
+    padding-right: calc(50% - 350px);
 }
 
 .header_block {
-	height: 70px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .logo {
-	color:#58553a;
-	transition: all 0.4s;
+    color: #58553a;
+    transition: all 0.4s;
 }
+
 .logo_text {
-	font-size: 25px;
-	cursor: pointer;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .logo_text:hover .logo {
-	color: #857800;
+    color: #857800;
 }
 
 .logo_text .logo {
-	display: inline;
-	font-size: 30px;
+    display: inline;
+    font-size: 30px;
 
+}
+
+.nav_block {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.nav_text {
+    font-size: 18px;
+    padding: 20px;
 }
