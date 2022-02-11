@@ -1,7 +1,6 @@
 .panel__link_mui {
     display: flex;
     flex-direction: column;
-
 }
 
 .panel__link_mui {
@@ -38,7 +37,8 @@
     display: none;
 }
 
-.panel__link_mui:hover::before {
+.panel__link_mui:hover::before,
+.panel__link_mui:hover .remove__btn {
     display: flex;
 }
 
@@ -66,4 +66,25 @@
 
 .panel__link_mui:hover {
     color: white;
+}
+
+.remove__btn {
+    position: absolute;
+    top: 12px;
+    right: 63px;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    color: #58553a;
+    background: rgb(176 180 181 / 57%);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility ease-in-out 0.4s, opacity ease 1s;
+}
+li:hover .remove__btn {
+    visibility: visible;
+    opacity: 1;
 }

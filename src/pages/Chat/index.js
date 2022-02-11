@@ -3,9 +3,13 @@ import styles from './Chat.module.css';
 import { UserPanel, Chatting } from '../../components';
 import { useParams, Navigate } from 'react-router-dom';
 import {getChatsLink} from '../../routes';
-export const Chat = ({usersList}) => {
+import { useSelector } from 'react-redux';
+import { getChatList } from '../../store/chats';
+
+export const Chat = () => {
 	const { chatId } = useParams();
-    let chatsId = usersList?.find(({id}) => String(id) === chatId);
+    const chatList = useSelector(getChatList);
+    let chatsId = chatList?.find(({id}) => String(id) === chatId);
 
 	return (
 		<div
@@ -16,12 +20,13 @@ export const Chat = ({usersList}) => {
                 ].join(' ')
             }
         >
-            <UserPanel usersList={usersList}/>
+            <UserPanel/>
             {
                 chatsId ?
                 <Chatting/> :
                 <Navigate to={getChatsLink()} replace />
             }
+            
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './UserPanel.module.css';
 import { UsersList } from './components';
 
-export const UserPanel = ({usersList}) => {
+export const UserPanel = () => {
 	return (
 			<div className={[
 					styles.container__left,
@@ -15,7 +15,7 @@ export const UserPanel = ({usersList}) => {
 						<p className={styles.content__left_heading}>chats</p>
 					</div>
 					<div className={styles.panel__list}>
-						<UsersList usersList = {usersList}/>
+						<UsersList/>
 					</div>
 				</div>
 			</div>

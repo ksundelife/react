@@ -57,6 +57,6 @@ export const InputForm = ({ handleSubmit }) => {
 				<button type="reset" className={styles.reset}>X</button>
 			</div>
 			
-			<button type="submit" className={styles.submit}>Отправить</button>
+			<button type="submit" className={styles.submit}>Send</button>
 		</form>);
 }

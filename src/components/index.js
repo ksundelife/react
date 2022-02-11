@@ -4,3 +4,4 @@ export * from './Header';
 export * from './Chatting/Chatting';
 export * from './NoChatting';
 export * from './UserPanel/UserPanel';
+export * from './AddChatInput';

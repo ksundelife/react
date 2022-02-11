@@ -1,9 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { InputForm } from "../../examples/hooks";
 import { Message } from './components';
-// import { Switch, Route } from "react-router-dom";
-// import {ChildrenAndRenderProps, Home, Chats, Profile} from "./routes";
-// import {Chat} from "./routes/Chat";
+
 
 export const Chatting = () => {
 
