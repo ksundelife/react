@@ -5,8 +5,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import {getChatsLink} from '../../routes';
 export const Chat = ({usersList}) => {
 	const { chatId } = useParams();
-    let chatsId = usersList?.map(item => String(item.id));
-	let chackingChatId = chatsId?.indexOf(chatId) !== -1;
+    let chatsId = usersList?.find(({id}) => String(id) === chatId);
 
 	return (
 		<div
@@ -19,7 +18,7 @@ export const Chat = ({usersList}) => {
         >
             <UserPanel usersList={usersList}/>
             {
-                chackingChatId ?
+                chatsId ?
                 <Chatting/> :
                 <Navigate to={getChatsLink()} replace />
             }
