@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './UserPanel.module.css';
-import { UsersList } from './components';
+import { UsersList } from '../UserPanel/components/UsersList/UsersList';
 
 export const UserPanel = () => {
 	return (

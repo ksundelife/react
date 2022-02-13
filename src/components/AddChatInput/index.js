@@ -6,7 +6,6 @@ import { addChatAction } from '../../store/chats';
 export const AddChatInput = () => {
     const [visible, setVisible] = useState(false);
     const [newChatName, setNewChatName] = useState("");
-
     const dispatch = useDispatch();
 
     const handleClose = () => setVisible(false);
@@ -21,7 +20,7 @@ export const AddChatInput = () => {
         dispatch(addChatAction(newChatName));
         setNewChatName("");
         handleClose();
-    }, [newChatName]);
+    }, [newChatName, dispatch]);
 
     return (
         <>
