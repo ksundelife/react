@@ -2,7 +2,7 @@ import { TOGGLE_SHOW_NAME } from './actions';
 
 const initialState = {
     status: false,
-    name: undefined
+    name: null
 };
 
 export const profileReducer = (state = initialState, action) => {

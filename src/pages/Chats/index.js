@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './Chats.module.css';
-import { UserPanel, NoChatting } from '../../components';
+import { UserPanel, NoChatting, AddChatInput} from '../../components';
+import { useSelector } from 'react-redux';
+import { getChatList } from '../../store/chats';
 
-export const Chats = ({usersList}) => {
-
+export const Chats = () => {
+    const chatList = useSelector(getChatList);
 	return (
 		<div
                 className = {
@@ -13,8 +15,14 @@ export const Chats = ({usersList}) => {
                     ].join(' ')
                 }
         >
-            <UserPanel usersList={usersList}/>
+            <UserPanel/>
             <NoChatting/>
+
+            {
+                chatList?.length > 0 ?
+                <AddChatInput/> : 
+                null
+            }
 		</div>
 	);
 };

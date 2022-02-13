@@ -2,6 +2,8 @@ import React from 'react';
 import { List, ListItem } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Users } from './components';
+import { useSelector } from 'react-redux';
+import { getChatList } from '../../../../store/chats';
 
 const CustomList = styled(List)
 `
@@ -10,15 +12,17 @@ const CustomList = styled(List)
     }
 `;
 
-export const UsersList = ({usersList}) => {
+export const UsersList = () => {
+    const chatList = useSelector(getChatList);
+
     return (
         <CustomList>
-            {usersList?.map((value, index) => ( 
+            {chatList?.map((item) => ( 
                 <ListItem
-                    key={Date.now() + index}
+                    key={item.id}
                     disablePadding={true}
                 >
-                    <Users usersList={usersList} chatParamId={usersList[index].id} usersListName={usersList[index].name} key={usersList[index].id}/>
+                    <Users chatId={item.id} userName={item.name} key={item.id}/>
                 </ListItem>
             ))}
         </CustomList>

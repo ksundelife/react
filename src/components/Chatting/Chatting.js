@@ -1,38 +1,33 @@
-import { useState, useEffect, useCallback } from 'react';
-import { InputForm } from "../../examples/hooks";
+import { useEffect, useCallback } from 'react';
+import { InputForm } from "../../components";
 import { Message } from './components';
-// import { Switch, Route } from "react-router-dom";
-// import {ChildrenAndRenderProps, Home, Chats, Profile} from "./routes";
-// import {Chat} from "./routes/Chat";
+import { useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
+import { getChatMessages } from '../../store/messages';
+import { addMessageAction } from '../../store/messages';
+import {useParams} from "react-router";
 
 export const Chatting = () => {
-
-	const [messages, setMessages] = useState([]);
+	const { chatId } = useParams();
+	const messageList = useSelector(getChatMessages(chatId));
+	const dispatch = useDispatch();
 
 	const loadComoutedMessage = useCallback(() => {
-		if (messages.length !== 0 && messages[(messages.length - 1)].author === 'Ksusha') {
-			setMessages(prevState => [...prevState, {
-				id: Date.now(),
-				author: 'Computed',
-				text: 'Привет! Я робот и не умею нормально отвечать'
-			}]);
+		if (messageList && messageList?.length !== 0 && messageList[(messageList.length - 1)].author === 'Ksusha') {
+			dispatch(addMessageAction(chatId, 'Computed','Привет! Я робот и не умею нормально отвечать!'));
 		}
-	}, [messages]);
+	}, [messageList, chatId, dispatch]);
 
 	useEffect(() => {
 		setTimeout(() => {
 			loadComoutedMessage();
 		}, 2000);
-	}, [messages, loadComoutedMessage]);
+	}, [messageList, loadComoutedMessage]);
 
 	return (
 		<>
-			<Message messages={ messages } />
-			<InputForm 
-				handleSubmit={(formState) => {
-					setMessages([...messages, formState])
-				}}
-			/>
+			<Message messageList={messageList} />
+			<InputForm/>
 
 		</>
 	);
