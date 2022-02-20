@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Chats.module.css';
-import { UserPanel, NoChatting, AddChatInput} from '../../components';
+import { UserPanel, NoChatting, AddChatInputContainer} from '../../components';
 import { useSelector } from 'react-redux';
 import { getChatList } from '../../store/chats';
 
@@ -20,7 +20,7 @@ export const Chats = () => {
 
             {
                 chatList?.length > 0 ?
-                <AddChatInput/> : 
+                <AddChatInputContainer/> : 
                 null
             }
 		</div>
