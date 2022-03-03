@@ -10,13 +10,13 @@ export const getUsersWithThunk = (page = 1) => async (dispatch) => {
     try {
         const result = await api.getUsers(page);
 
-        const [error, result2] = await api.getUsers2(page);
+        // const [error, result2] = await api.getUsers2(page);
 
-        if (error) {
-            dispatch(setError(true));
-        } else {
-            dispatch(setData(result2));
-        }
+        // if (error) {
+        //     dispatch(setError(true));
+        // } else {
+        //     dispatch(setData(result2));
+        // }
         dispatch(setData(result));
     } catch (e) {
         console.error(e);

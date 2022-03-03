@@ -1,7 +1,11 @@
 .card__container {
     margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+    grid-gap: 10px;
+    justify-content: center;
+    justify-items: stretch;
+    align-content: flex-end;
+    align-items: center;
 }
