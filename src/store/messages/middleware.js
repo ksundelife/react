@@ -20,9 +20,8 @@ export const addMessageWithThunk = (chatId, author, message) => (dispatch, getSt
     const prevTimerId = getState(getSendMessageTimerID);
     console.log(prevTimerId === null);
     if (author === "Computed" && prevTimerId !== null) {
-        return;
+        return; 
     }
-
     const timerId = setTimeout(() => {
         dispatch(addMessageAction(chatId, 'Computed', 'Привет! Я робот и не умею нормально отвечать!'));
     }, 1000);
