@@ -1,44 +1,29 @@
-import { useState, useCallback} from 'react';
 import styles from './AddChatInput.module.css';
-import { useDispatch } from 'react-redux';
-import { addChatAction } from '../../store/chats';
 
-export const AddChatInput = () => {
-    const [visible, setVisible] = useState(false);
-    const [newChatName, setNewChatName] = useState("");
-    const dispatch = useDispatch();
-
-    const handleClose = () => setVisible(false);
-    const handleOpen = () => setVisible(true);
-    
-    const handleChange = useCallback((event) => {
-        setNewChatName(event.target.value);
-    }, []);
-
-    const onAddChat = useCallback((event) => {
-        event.preventDefault();
-        dispatch(addChatAction(newChatName));
-        setNewChatName("");
-        handleClose();
-    }, [newChatName, dispatch]);
-
+export const AddChatInput = ({
+            newChatName,
+            visibleInputChatAdd,
+            handleCloseInputChatAdd,
+            handleOpenInputChatAdd,
+            handleChangeNewChatName,
+            onAddChat }) => {
     return (
         <>
             <div>
-                <button onClick={handleOpen} className={styles.submit} style={{ display: visible ? "none" : "block" }}>Add chat</button>
+                <button onClick={handleOpenInputChatAdd} className={styles.submit} style={{ display: visibleInputChatAdd ? "none" : "block" }}>Add chat</button>
             </div>
-            <form style={{ display: visible ? "flex" : "none" }} onClose={handleClose} className={[styles.input_form, 'padding'].join(' ')}>
+            <form style={{ display: visibleInputChatAdd ? "flex" : "none" }} onClose={handleCloseInputChatAdd} className={[styles.input_form, 'padding'].join(' ')}>
                 <div className={styles.chat_input_div}>
                     <label>Enter the user name</label>
                     <input
                         value={newChatName}
-                        onChange={handleChange}
+                        onChange={handleChangeNewChatName}
                         name="text" 
                         className={styles.chat_input}
                     />
                 </div>
                 <div className={styles.buttons__container}>
-                    <button onClose={handleClose} className={styles.submit}>Cancel</button>
+                    <button onClose={handleCloseInputChatAdd} className={styles.submit}>Cancel</button>
                     <button onClick={onAddChat} disabled={!newChatName} type="submit" className={styles.submit}>Add</button>
                 </div>
 		    </form>
