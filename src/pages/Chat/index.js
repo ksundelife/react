@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Chat.module.css';
 import { UserPanel, Chatting } from '../../components';
 import { useParams, Navigate } from 'react-router-dom';
-import {getChatsLink} from '../../routes';
+import { getChatsLink } from '../../routes';
 import { useSelector } from 'react-redux';
 import { getChatList } from '../../store/chats';
 

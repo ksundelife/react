@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from './Header.module.css';
 import { Link } from "react-router-dom";
-import {getHomeLink, getChatsLink, getProfileLink} from "../../routes";
+import {
+    getHomeLink,
+    getChatsLink,
+    getProfileLink,
+    getUsersLink
+} from "../../routes";
 
 export const Header = () => {
 	const navMenu = [{
@@ -9,6 +14,11 @@ export const Header = () => {
 	        path: getHomeLink(),
 	        title: 'Home',
 	    },
+        {
+            id: Date.now(),
+            path: getUsersLink(),
+            title: 'Users',
+        },
 	    {
 	        id: Date.now(),
 	        path: getChatsLink(),

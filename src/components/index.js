@@ -6,3 +6,7 @@ export * from './AddChatInput';
 export * from './InputForm';
 export * from './InputFormContainer';
 export * from './AddChatInputContainer';
+export * from './UsersCard';
+export * from './UserCard';
+export * from './Loader';
+export * from './Error';

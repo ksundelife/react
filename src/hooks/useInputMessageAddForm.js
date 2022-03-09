@@ -15,14 +15,12 @@ export const useInputMessageAddForm = ({ chatId }) => {
     }, []);
 
     const resetMessageAddForm = useCallback((event) => {
-        console.log('resetForm', event);
         event.preventDefault();
         setMessageText("");
         inputRef.current?.focus();
     }, []);
 
     const onSubmitMessageAdd = useCallback((event) => {
-        console.log('onSubmit', event);
         event.preventDefault();
         if (messageText !== "") {
             dispatch(addMessageWithThunk(chatId, 'Ksusha', messageText));

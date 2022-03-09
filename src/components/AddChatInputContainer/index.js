@@ -12,12 +12,12 @@ export const AddChatInputContainer = () => {
 		onAddChat
 	} = useAddChatInput();
 
-	return ( <AddChatInput 
+	return (<AddChatInput 
 				newChatName={newChatName}
 				visibleInputChatAdd={visibleInputChatAdd}
-				handleCloseInputChatAdd={handleCloseInputChatAdd}
+				handleCloseInputChatAdd={ handleCloseInputChatAdd }
 				handleOpenInputChatAdd = { handleOpenInputChatAdd }
 				handleChangeNewChatName = { handleChangeNewChatName }
-				onAddChat = { onAddChat}
-			/> );
+				onAddChat = { onAddChat }
+			/>);
 }
